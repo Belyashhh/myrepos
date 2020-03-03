@@ -22,6 +22,7 @@ Stroki::Stroki(const char* s)
 
 Stroki::Stroki(const Stroki& a)
 {
+
 	n = a.n;
 	str = new char[n + 1];
 	strcpy_s(str, n + 1, a.str);
