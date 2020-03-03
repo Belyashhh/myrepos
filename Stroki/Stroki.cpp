@@ -27,3 +27,20 @@ Stroki::Stroki(const Stroki& a)
 	str = new char[n + 1];
 	strcpy_s(str, n + 1, a.str);
 }
+
+ostream& operator<<(ostream& a, const Stroki& s)
+{
+	return a << s.str;
+
+}
+
+istream& operator>>(istream& a, Stroki& s)
+{
+	char arr[1000];
+	a.getline(arr, 1000);
+	if (s.str)delete[]s.str;
+	s.n = strlen(arr);
+	s.str = new char[s.n + 1];
+	strcpy_s(s.str, s.n + 1, arr);
+	return a;
+}
