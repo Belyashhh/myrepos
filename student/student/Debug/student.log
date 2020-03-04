@@ -1,5 +1,0 @@
-﻿  student.cpp
-C:\Users\mdbelyaev\source\repos\student\student\Student.h(17,21): error C2059:  синтаксическая ошибка: )
-C:\Users\mdbelyaev\source\repos\student\student\Student.h(17,21): error C2143:  синтаксическая ошибка: отсутствие ")" перед ";"
-C:\Users\mdbelyaev\source\repos\student\student\student.cpp(31,1): error C2511:  Student::Student(std::string,int): перегруженная функция-член не найдена в "Student"
-C:\Users\mdbelyaev\source\repos\student\student\Student.h(5): message :   см. объявление "Student"
