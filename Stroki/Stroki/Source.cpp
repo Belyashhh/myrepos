@@ -6,6 +6,10 @@
 
 int main()
 {
-	Stroki a("qwerty");
+//	Stroki a("qwerty");
+	Stroki b("123");
+	int s;
+	s = b.Ineger();
+	cout << s;
 
 }

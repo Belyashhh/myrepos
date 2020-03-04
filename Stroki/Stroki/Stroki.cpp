@@ -28,10 +28,17 @@ Stroki::Stroki(const Stroki& a)
 	strcpy_s(str, n + 1, a.str);
 }
 
+int Stroki::Ineger()
+{
+	int num = 0;
+	for (int i = 0; i < n; i++) 
+		num = num * 10 + str[i] - 0x30;
+	return num;
+}
+
 ostream& operator<<(ostream& a, const Stroki& s)
 {
 	return a << s.str;
-
 }
 
 istream& operator>>(istream& a, Stroki& s)
