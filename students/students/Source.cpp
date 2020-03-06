@@ -9,5 +9,8 @@ using namespace std;
 
 int main()
 {
-	std::cout << "Hello World!\n";
+	//Student st1("misha 14 12345");
+	string a= "misha 14 12345";
+	Student st2(a);
+	st2.print();
 }

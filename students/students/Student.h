@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 using namespace std;
+
 class Student
 {
 	string name;
@@ -12,5 +13,7 @@ class Student
 public:
 	Student();
 	Student(string s, int g, int* a);
+	Student(string s);
+	void print();
 };
 
