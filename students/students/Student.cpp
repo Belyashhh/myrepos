@@ -51,4 +51,5 @@ void Student::print()
 	cout << name << ' ' << gr << ' ';
 	for (int i = 0; i < 5; i++)
 		cout << ball[i];
+	cout << endl;
 }

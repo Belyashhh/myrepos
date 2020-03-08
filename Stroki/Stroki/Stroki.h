@@ -22,4 +22,4 @@ public:
 //		num = num * 10 + str[i] - 0x30;
 //	}
 //	cout << num;
-//}
+//}		
