@@ -5,25 +5,49 @@
 
 using namespace std;
 
+void Student::markArray(string m)
+{
+	for (int i = 0; i < 5; i++)
+		ball[i] = m[i]-48;
+	Averagemark();
+}
+
 void Student::copy(int* a)
 {
 	for (int i = 0; i < 5; i++)
 		ball[i] = a[i];
 }
 
-float Student::averagemark(int* a)
+void Student::Averagemark()
 {
 	float n = 0;
 	for (int i = 0; i < 5; i++)
-		n =+ a[i];
-	return n/5;
+		n += ball[i];
+	averagemark = n / 5;
+
 }
+
+void Student::ballstr()
+{
+	for (int i = 0; i < 5; i++)
+		mark += ball[i] + 48;
+	Averagemark();
+}
+
 
 Student::Student()
 {
 	name = "";
 	gr = 0;
+	mark = "";
+}
 
+Student::Student(string s, int g, string a)
+{
+	name = s;
+	gr = g;
+	mark = a;
+	markArray(a);
 }
 
 Student::Student(string s, int g, int* a)
@@ -31,6 +55,7 @@ Student::Student(string s, int g, int* a)
 	name = s;
 	gr = g;
 	copy(a);
+	ballstr();
 }
 
 Student::Student(string s)
@@ -41,6 +66,7 @@ Student::Student(string s)
 	for (int i = 4; i >=0; i--)
 	{
 		ball[i] = s[l]-48;
+		mark = s[l] + mark;
 		l--;
 	}
 
@@ -53,6 +79,7 @@ Student::Student(string s)
 	gr = stoi(gropa);
 	for (int i = 0; i < l; i++)
 		name += s[i];
+	Averagemark();
 }
 
 Student::Student(Student& s)
@@ -60,63 +87,67 @@ Student::Student(Student& s)
 	name = s.name;
 	gr = s.gr;
 	copy(s.ball);
+	averagemark = s.averagemark;
+	mark = s.mark;
 }
 
 Student& Student::operator=(Student& s)
 {
 	this->name = s.name;
 	this->gr = s.gr;
+	this->averagemark = s.averagemark;
+	this->mark = s.mark;
 	this->copy(s.ball);
 	return *this;
 }
 
-void Student::print()
-{
-	cout << name << ' ' << gr << ' ';
-	for (int i = 0; i < 5; i++)
-		cout << ball[i];
-	cout << endl;
-}
 
 bool Student::operator>(Student& a)
 {
+	if (averagemark)
+		markArray(mark);
 	bool n = true;
 	if (gr < a.gr)
 		n = false;
 	if (gr == a.gr)
 		if (name <= a.name)
-			n = (averagemark(ball) > averagemark(a.ball));
+			n = (averagemark > a.averagemark);
 	return n;
 }
 
 bool Student::operator<(Student& a)
 {
+	if (averagemark)
+		markArray(mark);
 	bool n = true;
 	if (gr > a.gr)
 		n = false;
 	if (gr == a.gr)
 		if (name >= a.name)
-			n = (averagemark(ball) < averagemark(a.ball));
+			n = (averagemark < a.averagemark);
 	return n;
 }
 
 bool Student::operator==(Student& a)
 {
-	return gr == a.gr && name==a.name && averagemark(ball) == averagemark(a.ball);
+	if (averagemark)
+		markArray(mark);
+	return gr == a.gr && name==a.name && averagemark == a.averagemark;
 }
 
 bool Student::operator!=(Student& a)
 {
-	return gr != a.gr || name != a.name || averagemark(ball) != averagemark(a.ball);
+	if (averagemark)
+		markArray(mark);
+	return gr != a.gr || name != a.name || averagemark != a.averagemark;
 }
 
 ostream& operator<<(ostream& os, const Student& a)
 {
-	return os << a.name << " " << a.gr ;
-
+	return os << a.name << " " << a.gr <<" "<<a.mark;
 }
 
 istream& operator>>(istream& os, Student& a)
 {
-	return os >> a.name >> a.gr;
+	return os >> a.name >> a.gr >> a.mark;
 }

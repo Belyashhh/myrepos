@@ -1,0 +1,21 @@
+20
+alex 11 12345
+boris 12 52354
+vlodimir 21 23454
+georg 37 22253
+dima 23 24255
+egor 27 43534
+zhenya 23 32354
+igory 43 45355
+yorik 14 43243
+kiril 23 53543
+lev 11 54335
+max 37 43544
+nekit 33 43452
+oleg 21 23342
+pavel 32 34345
+roma 23 23454
+sergey 17 35352
+tolya 41 53454
+foma 22 23433
+yarik  34 34545
