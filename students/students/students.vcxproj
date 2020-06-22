@@ -128,6 +128,7 @@
     <ClCompile Include="Student.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="list.h" />
     <ClInclude Include="sort.h" />
     <ClInclude Include="Student.h" />
   </ItemGroup>
